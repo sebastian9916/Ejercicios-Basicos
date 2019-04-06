@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Logica.Arreglos;
 import Logica.Numeros;
 import Logica.OperacionesAlgebraicas;
 import Logica.OperacionesBasicas;
@@ -19,10 +20,14 @@ public class Main {
         OperacionesGeometricas og = new OperacionesGeometricas();
         OperacionesAlgebraicas oa = new OperacionesAlgebraicas();
         Numeros num = new Numeros();
+        Arreglos ar = new Arreglos();
+
         int opcion, a, b, c, B[] = {23, 45, 68, 99, 10, 15, 4};;
         float x, y, A[], M[][];
-
         double m, n, o;
+        String cadena = "";
+        char p;
+        boolean bool;
         do {
             System.out.println("Elija una opcion.");
             opcion = sc.nextInt();
@@ -208,7 +213,7 @@ public class Main {
                     break;
                 case 50:
                     System.out.println("Ejercicio 50 Suma Pares e impares:");
-                    M = num.sumaMedia();
+                    M = ar.sumaMedia();
                     System.out.println("Suma pares: " + M[0][0]
                             + ", Media: " + M[0][1] + "\nSuma impares: " + M[1][0]
                             + ", Media: " + M[1][1]);
@@ -220,78 +225,165 @@ public class Main {
                         System.out.print("\nIngrese el numero " + (i + 1));
                         A[i] = sc.nextFloat();
                     }
-                    System.out.println("Suma de los negativos: " + num.sumaNegativos(A));
+                    System.out.println("Suma de los negativos: " + ar.sumaNegativos(A));
                     break;
                 case 54:
                     System.out.println("Ejercicio 54 Arreglo Pares 1-100:");
-                    num.arregloPares();
+                    ar.arregloPares();
                     break;
                 case 56:
                     System.out.println("Ejercicio 56 Arreglo Consecutivo y copia:");
+                    //clase.consecutivo();
                     break;
                 case 58:
                     System.out.println("Ejercicio 58 Arreglo Veinte primeros "
                             + "pares y sume:");
+                    //clase.pares();
                     break;
                 case 60:
                     System.out.println("Ejercicio 60 Posicion máximo valor: ");
-                    System.out.println("El numero mayo está en la posicion: " + num.posicionArreglo(B));
+                    System.out.println("El numero mayor está en la posicion: " + ar.posicionMayor(B, 6));
                     break;
                 case 62:
+                    B = new int[10];
                     System.out.println("Ejercicio 62 Posicion máximo "
                             + "valor por pantalla:");
+                    for (int i = 0; i < 10; i++) {
+                        System.out.print("Ingrese el valor " + (i + 1) + ": ");
+                        B[i] = sc.nextInt();
+                    }
+                    System.out.println("El numero mayor está en la posicion: " + ar.posicionMayor(B, 10));
+                    System.out.println("El numero menor está en la posicion: " + ar.posicionMenor(B));
                     break;
                 case 64:
                     System.out.println("Ejercicio 64 Valor máximo en matriz: ");
+                    // mostrar matriz
+                    System.out.println("El valor maximo se encuentra en: " /* llamar funcion*/);
                     break;
                 case 66:
                     System.out.println("Ejercicio 66 Matriz por escalar:");
+                    System.out.println("Matriz original: ");
+                    // Mostrar matriz y llamar funcion multiplicar
                     break;
                 case 68:
                     System.out.println("Ejercicio 68 Sume y almacene matriz:");
+                    System.out.println("Matriz original: ");
+                    // Mostrar matriz y llamar funcion Sumar
                     break;
                 case 70:
                     System.out.println("Ejercicio 70 Sume filas y columnas:");
-                    
+                    M = new float[5][4];
+                    M = ar.sumaMatriz(M);
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 4; j++) {
+                            System.out.print("[" + (int) M[i][j] + "] ");
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 72:
                     System.out.println("Ejercicio 72 Primos entre 1-100:");
+                    //ar.primos();
                     break;
                 case 74:
                     System.out.println("Ejercicio 74 Inversa cadena de caracteres:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    System.out.println("Cadena original: " + cadena);
+                    System.out.println("Cadena inversa: " /*+ ar.cadenaInversa */);
                     break;
                 case 76:
                     System.out.println("Ejercicio 76 Eliminar blancos en cadena:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    System.out.println("Cadena original: " + cadena);
+                    System.out.println("Cadena sin espacios: " /*+ ar.cadenaSinEspacios */);
                     break;
                 case 78:
                     System.out.println("Ejercicio 78 Invertir mayúsculas y minúsculas:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    System.out.println("Cadena original: " + cadena);
+                    System.out.println("Cadena con mayúsculas y minúsculas "
+                            + "invertidas: " /*+ ar.cadenaMayMin */);
                     break;
                 case 80:
                     System.out.println("Ejercicio 80 Encriptacion:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    System.out.print("La frase convertida es: ");
+                    ar.encriptacion(cadena);
                     break;
                 case 82:
                     System.out.println("Ejercicio 82 Conteo de letras:");
+                    System.out.print("Ingrese una cadena de caracteres terminada en punto: ");
+                    cadena = sc.next();
+                    if (cadena.charAt(cadena.length() - 1) != '.') {
+                        System.out.println("La frase debe terminar en punto");
+                    } else {
+                        //ar.conteo(cadena);
+                    }
                     break;
                 case 84:
                     System.out.println("Ejercicio 84 Comparar dos arreglos:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    //ar.comparar(cadena);
                     break;
                 case 86:
                     System.out.println("Ejercicio 86 Palindromo:");
+                    System.out.print("Ingrese una cadena de caracteres: ");
+                    cadena = sc.next();
+                    //ar.palindromo(cadena);
                     break;
                 case 88:
                     System.out.println("Ejercicio 88 Potencia:");
+                    System.out.print("Ingrese un numero para calcular su potencia: ");
+                    a = sc.nextInt();
+                    System.out.print("A qué potencia desea elevarlo: ");
+                    b = sc.nextInt();
+                    //System.out.println(a + " elevado a la " + b + " es: " + num.potencia(a,b));
                     break;
                 case 90:
                     System.out.println("Ejercicio 90 Numero o no: ");
+                    System.out.print("Ingrese un caracter: ");
+                    p = sc.next().charAt(0);
+                    bool = num.validar(p);
+                    if (bool) {
+                        System.out.println(p + "Es un numero");
+                    } else {
+                        System.out.println(p + "No es un numero");
+                    }
                     break;
                 case 92:
                     System.out.println("Ejercicio 92 Precios y descuentos: ");
+                    System.out.print("Cuantas unidades desea comprar: ");
+                    a = sc.nextInt();
+                    System.out.print("De qué precio cada una: ");
+                    x = sc.nextFloat();
+                    //System.out.println("Total a pagar: " + num.precio(a,x));
                     break;
                 case 94:
                     System.out.println("Ejercicio 94 Mes:");
+                    System.out.print("Introduzca un numero: ");
+                    a = sc.nextInt();
+                    if (a < 1 || a > 12) {
+                        System.out.println("El numero está fuera de los límites");
+                    } else {
+                        // num.mes(a);
+                    }
                     break;
                 case 96:
                     System.out.println("Ejercicio 96 Serie de numeros:");
+                    bool = true;
+                    do {
+                        System.out.print("Ingrese el numero: ");
+                        cadena = sc.next();
+                        if (cadena.length() == 1) {
+                            bool = false;
+                        }
+                        //num.94(Integer.parseInt(cadena));
+                    } while (bool);
                     break;
                 default:
                     System.out.println("Esta opcion no está en el menú:");
