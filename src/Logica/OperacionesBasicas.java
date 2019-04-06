@@ -5,15 +5,7 @@
  */
 package Logica;
 
-/**
- *
- * @author Estudiantes
- */
 public class OperacionesBasicas {
-
-    public OperacionesBasicas() {
-
-    }
 
     public int suma(int a, int b) {
         return a + b;
@@ -27,7 +19,11 @@ public class OperacionesBasicas {
         return a * b;
     }
 
-    public int division(int a, int b) {
+    public int division(int a, int b) {//ejercicio 22
         return a / b;
     }
+    public int divisionModulo (int a,int b){//ejercicio 22
+        return a%b;
+    }
+    
 }
